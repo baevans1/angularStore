@@ -1,5 +1,8 @@
 (function() {
   var app = angular.module('store', []);
+
+
+
   app.controller('StoreController', function(){
     this.product = gems;
   });
@@ -7,27 +10,52 @@
   var gems = [
   {
     name: 'Grace Kelly Engagement',
-    price: 47500,
+    price: 7000,
     description: 'Worn by Grace Kelly herself as she became Hollywood royalty.',
     canPurchase: true,
-    soldOut: true,
+    soldOut: false,
     images: [
-      {
-        full: 'images/GraceKelly.jpg'
-        // thumb: 'gemOfHera-01-thumb.jpg'
-      }
-    ]
+      'images/GraceKelly.jpg',
+      'images/GraceKelly2.jpg',
+      'images/GraceKelly3.jpg',
+    ],
+    reviews:[
+    {
+      stars: 5,
+      body: "such a beautiful piece",
+      author: "carmensandy@yahoo.com"
+    },
+    {
+      stars: 5,
+      body: "It glimmers so bright in the sun.",
+      author: "rougeetrois@plie.fr"
+    }
+  ]
   },
   {
    name: "Heart of the Ocean",
-   price: 13500,
+   price: 4500,
    description: "Forged to mimic the timeless movie classic necklace lost in the depths of the Atlantic.",
    canPurchase: true,
-   images: [
-     {
-       full: 'images/heartOcean.jpg'
-     }
-   ]
+   images:
+   [
+    'images/heartOcean.jpg',
+    'images/heartOcean2.jpg',
+    'images/heartOcean3.jpg'
+    ],
+    reviews:
+    [
+      {
+        stars: 4,
+        body: "I love the realistic feel of a diamond.",
+        author: "luna@lovegood.org"
+      },
+      {
+        stars: 2,
+        body: "It's too heavy to wear.",
+        author: "miriam@complainer.com"
+      },
+    ]
  },
   ]
 
@@ -41,5 +69,13 @@ app.controller("PanelController", function() {
     return this.tab === checkTab;
   };
 });
+
+  app.controller('GalleryController', function(){
+  this.current = 0;
+
+  this.setCurrent = function(newGallery){
+    this.current = newGallery || 0;
+  };
+  });
 
 })();
