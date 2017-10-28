@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <title></title>
@@ -48,33 +49,51 @@
             <div class="card-body" ng-show="panel.isSelected(3)">
               <h5>Reviews</h5>
               <blockquote class="card-text" ng-repeat="review in product.reviews">
-                <b>Stars: {{review.stars}}</b>
+                <b>{{review.stars}} Stars</b>
                 {{review.body}}
                 <br>
                 <cite>&mdash; {{review.author}}</cite>
               </blockquote>
-              <form name="reviewForm">
-                <h5>Submit a Review</h5>
+              <form name="reviewForm"
+                    ng-controller="ReviewController as reviewCtrl"
+                    ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)"
+                    novalidate>
                 <blockquote>
-                  <b>{{review.stars}}</b>
-                  {{review.body}}
+                  <b>{{reviewCtrl.review.stars}} Stars</b>
+                  {{reviewCtrl.review.body}}
                   <br>
-                  <cite>&mdash; {{review.author}}</cite>
+                  <cite>&mdash; {{reviewCtrl.review.author}}</cite>
                 </blockquote>
-                <select class="custom-select form-control" ng-model="review.stars">
-                  <!-- <option selected="selected">Rate the Product</option> -->
+                <h5>Submit a Review</h5>
+                <select class="custom-select form-control"
+                        ng-options="stars for stars in [5,4,3,2,1]"
+                        ng-model="reviewCtrl.review.stars"
+                        required>
+                  <option value="">Rate the Product</option>
                   <!--  the above option doesn't work to default because of ng-model-->
-                  <option value="1 Star">1 star</option>
+                  <!-- <option value="1 Star">1 star</option>
                   <option value="2 Stars">2 stars</option>
                   <option value="3 Stars">3 stars</option>
                   <option value="4 Stars">4 stars</option>
-                  <option value="5 Stars">5 stars</option>
+                  <option value="5 Stars">5 stars</option> -->
                 </select>
-                <textarea class="form-control mt-2" placeholder="Write a short review..."
-                  ng-model="review.body" name="name" rows="8" cols="80">
+                <textarea name="body"
+                          class="form-control mt-2"
+                          placeholder="Write a short review..."
+                          ng-model="reviewCtrl.review.body"
+                          name="name" rows="8" cols="80"
+                          required>
                 </textarea>
-                <input class="form-control mt-2" placeholder="someone@email.com" ng-model="review.author" type="email">
-                <input class="btn btn-info mt-2 float-right" type="submit" value="Submit" >
+                <input name="author"
+                      class="form-control mt-2"
+                      placeholder="someone@email.com"
+                      ng-model="reviewCtrl.review.author"
+                      type="email"
+                      required>
+                  <div> reviewForm is {{reviewForm.$valid}}</div>
+                <input class="btn btn-info mt-2 float-right"
+                        type="submit"
+                        value="Submit" >
               </form>
             </div>
           </section>
