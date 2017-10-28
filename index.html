@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="store">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <title></title>
+  </head>
+  <body class="offset-md-3 col-md-6 mt-3" ng-controller="StoreController as store">
+    <header>
+     <h1 class="text-center">Flatlander Crafted Gems</h1>
+     <h3 class="text-center">– an Angular store –</h3>
+   </header>
+      <div class="card mt-4" ng-repeat="product in store.product">
+          <h3  class="card-title m-3">
+            {{product.name}}
+            <em class="float-right"> {{product.price | currency }} </em>
+          </h3>
+          <section ng-show="product.images.length">
+            <!-- <img class="card-img-top" ng-src="{{product.images[0]}}" > -->
+            <ul class="list-inline thumbs">
+              <li class="thumbnail" ng-repeat="image in product.images">
+                <img ng-src="{{image}}" />
+              </li>
+            </ul>
+          </section>
+          <section ng-controller="PanelController as panel">
+            <ul class="nav nav-tabs">
+              <li class="nav-item" ng-class="{ active: panel.isSelected(1)}">
+                <a class="nav-link" href="#" ng-click="panel.selectTab(1)">Description</a>
+              </li>
+              <li class="nav-item" ng-class="{ active: panel.isSelected(2)}">
+                <a class="nav-link" href="#" ng-click="panel.selectTab(2)">Specifications</a>
+              </li>
+              <li class="nav-item" ng-class="{ active: panel.isSelected(3)}">
+                <a class="nav-link" href="#" ng-click="panel.selectTab(3)">Reviews</a>
+              </li>
+            </ul>
+            <div class="card-body" ng-show="panel.isSelected(1)">
+              <h5>Description</h5>
+              <p class="card-text">{{product.description}}</p>
+            </div>
+            <div class="card-body" ng-show="panel.isSelected(2)">
+              <h5>Specifications</h5>
+              <blockquote class="card-text">None yet</blockquote>
+            </div>
+            <div class="card-body" ng-show="panel.isSelected(3)">
+              <h5>Reviews</h5>
+              <blockquote class="card-text">None yet</blockquote>
+            </div>
+          </section>
+          <div>
+            <button class="btn btn-info m-3" ng-show="product.canPurchase"> Add to Cart</button>
+          </div>
+      </div>
+
+  </body>
+</html>
