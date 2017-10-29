@@ -46,6 +46,12 @@
         templateUrl: "product-title.html"
       };
     });
+    app.directive("productReview", function() {
+      return {
+        restrict: 'E',
+        templateUrl: "product-review.html"
+      };
+    });
 
   var gems = [
   {
