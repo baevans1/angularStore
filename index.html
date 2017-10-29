@@ -14,10 +14,11 @@
      <h3 class="text-center">– an Angular store –</h3>
    </header>
       <div class="card mt-4" ng-repeat="product in store.product">
-          <h3  class="card-title m-3">
-            {{product.name}}
+          <!-- <h3 class="card-title m-3"> -->
+            <product-title></product-title>
+            <!-- {{product.name}}
             <em class="float-right"> {{product.price | currency }} </em>
-          </h3>
+          </h3> -->
           <section ng-show="product.images.length">
             <img class="card-img-top" ng-src="{{product.images[0]}}" >
             <ul class="list-inline thumbs">
@@ -43,8 +44,9 @@
               <p class="card-text">{{product.description}}</p>
             </div>
             <div class="card-body" ng-show="panel.isSelected(2)">
-              <h5>Specifications</h5>
-              <blockquote class="card-text">None yet</blockquote>
+              <product-specs></product-specs>
+              <!-- <h5>Specifications</h5>
+              <blockquote class="card-text">None yet</blockquote> -->
             </div>
             <div class="card-body" ng-show="panel.isSelected(3)">
               <h5>Reviews</h5>
@@ -52,7 +54,7 @@
                 <b>{{review.stars}} Stars</b>
                 {{review.body}}
                 <br>
-                <cite>&mdash; {{review.author}}</cite>
+                <cite>&mdash; {{review.author}} on {{review.createdOn | date}}</cite>
               </blockquote>
               <form name="reviewForm"
                     ng-controller="ReviewController as reviewCtrl"
@@ -62,7 +64,7 @@
                   <b>{{reviewCtrl.review.stars}} Stars</b>
                   {{reviewCtrl.review.body}}
                   <br>
-                  <cite>&mdash; {{reviewCtrl.review.author}}</cite>
+                  <cite>&mdash; {{reviewCtrl.review.author}} on {{reviewCtrl.review.createdOn | date}}</cite>
                 </blockquote>
                 <h5>Submit a Review</h5>
                 <select class="custom-select form-control"
