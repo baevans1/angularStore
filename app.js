@@ -52,6 +52,12 @@
         templateUrl: "product-review.html"
       };
     });
+    app.directive("productDesc", function() {
+      return {
+        restrict: 'E',
+        templateUrl: "product-desc.html"
+      };
+    });
 
   var gems = [
   {

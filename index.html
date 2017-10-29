@@ -40,13 +40,12 @@
               </li>
             </ul>
             <div class="card-body" ng-show="panel.isSelected(1)">
-              <h5>Description</h5>
-              <p class="card-text">{{product.description}}</p>
+              <product-desc></product-desc>
+              <!-- <h5>Description</h5>
+              <p class="card-text">{{product.description}}</p> -->
             </div>
             <div class="card-body" ng-show="panel.isSelected(2)">
               <product-specs></product-specs>
-              <!-- <h5>Specifications</h5>
-              <blockquote class="card-text">None yet</blockquote> -->
             </div>
             <div class="card-body" ng-show="panel.isSelected(3)">
               <product-review></product-review>
