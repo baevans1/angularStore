@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="products.js"></script>
     <title></title>
   </head>
   <body class="offset-md-3 col-md-6 mt-3" ng-controller="StoreController as store">
@@ -16,18 +17,10 @@
       <div class="card mt-4" ng-repeat="product in store.product">
         <product-title></product-title>
         <product-images></product-images>
-          <!-- <section ng-show="product.images.length">
-            <img class="card-img-top" ng-src="{{product.images[0]}}" >
-            <ul class="list-inline thumbs">
-              <li ng-repeat="image in product.images">
-                <img class="img-thumbnail float-left" width="150px" ng-src="{{image}}" />
-              </li>
-            </ul>
-          </section> -->
-          <product-panels></product-panels>
-          <div>
-            <button class="btn btn-info m-3" ng-show="product.canPurchase"> Add to Cart</button>
-          </div>
+        <product-panels></product-panels>
+        <div>
+          <button class="btn btn-info m-3" ng-show="product.canPurchase"> Add to Cart</button>
+        </div>
       </div>
 
   </body>
