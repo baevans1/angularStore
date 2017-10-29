@@ -14,7 +14,6 @@
       controllerAs: 'gallery'
     };
   });
-
   app.directive("productSpecs", function() {
     return {
       restrict: 'E',
@@ -31,22 +30,6 @@
     return {
       restrict: 'E',
       templateUrl: "product-review.html"
-    };
-  });
-  app.directive("reviewForm", function() {
-    return {
-      restrict: 'E',
-      templateUrl: "review-form.html",
-      controller: function(){
-            this.review = {};
-
-            this.addReview = function(product) {
-              this.review.createdOn = Date.now();
-              product.reviews.push(this.review);
-              this.review = {};
-            };
-        },
-      controllerAs: 'reviewCtrl'
     };
   });
   app.directive("productDesc", function() {

@@ -5,4 +5,39 @@
   <br>
   <cite>&mdash; {{review.author}} on {{review.createdOn | date}}</cite>
 </blockquote>
-<review-form></review-form>
+<form name="reviewForm"
+      ng-controller="ReviewController as reviewCtrl"
+      ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)"
+      novalidate>
+  <blockquote>
+    <b>{{reviewCtrl.review.stars}} Stars</b>
+    {{reviewCtrl.review.body}}
+    <br>
+    <cite>&mdash; {{reviewCtrl.review.author}} on {{reviewCtrl.review.createdOn | date}}</cite>
+  </blockquote>
+  <h5>Submit a Review</h5>
+  <select class="custom-select form-control"
+          ng-options="stars for stars in [5,4,3,2,1]"
+          ng-model="reviewCtrl.review.stars"
+          required>
+    <option value="">Rate the Product</option>
+
+  </select>
+  <textarea name="body"
+            class="form-control mt-2"
+            placeholder="Write a short review..."
+            ng-model="reviewCtrl.review.body"
+            name="name" rows="8" cols="80"
+            required>
+  </textarea>
+  <input name="author"
+        class="form-control mt-2"
+        placeholder="someone@email.com"
+        ng-model="reviewCtrl.review.author"
+        type="email"
+        required>
+    <div> reviewForm is {{reviewForm.$valid}}</div>
+  <input class="btn btn-info mt-2 float-right"
+          type="submit"
+          value="Submit" >
+</form>
