@@ -61,7 +61,7 @@
     canPurchase: true,
     soldOut: false,
     images: [
-      'images/graceKelly.jpg',
+      'images/GraceKelly.jpg',
       'images/graceKelly2.jpg',
       'images/graceKelly3.jpg',
     ],
