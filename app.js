@@ -61,9 +61,9 @@
     canPurchase: true,
     soldOut: false,
     images: [
-      'images/GraceKelly.jpg',
-      'images/GraceKelly2.jpg',
-      'images/GraceKelly3.jpg',
+      'images/graceKelly.jpg',
+      'images/graceKelly2.jpg',
+      'images/graceKelly3.jpg',
     ],
     reviews:[
     {
