@@ -14,42 +14,17 @@
      <h3 class="text-center">– an Angular store –</h3>
    </header>
       <div class="card mt-4" ng-repeat="product in store.product">
-          <!-- <h3 class="card-title m-3"> -->
-            <product-title></product-title>
-            <!-- {{product.name}}
-            <em class="float-right"> {{product.price | currency }} </em>
-          </h3> -->
-          <section ng-show="product.images.length">
+        <product-title></product-title>
+        <product-images></product-images>
+          <!-- <section ng-show="product.images.length">
             <img class="card-img-top" ng-src="{{product.images[0]}}" >
             <ul class="list-inline thumbs">
               <li ng-repeat="image in product.images">
                 <img class="img-thumbnail float-left" width="150px" ng-src="{{image}}" />
               </li>
             </ul>
-          </section>
-          <product-panels></product-panels>
-          <!-- <section ng-controller="PanelController as panel">
-            <ul class="nav nav-tabs">
-              <li class="nav-item" ng-class="{ active: panel.isSelected(1)}">
-                <a class="nav-link" href="#" ng-click="panel.selectTab(1); $event.preventDefault();">Description</a>
-              </li>
-              <li class="nav-item" ng-class="{ active: panel.isSelected(2)}">
-                <a class="nav-link" href="#" ng-click="panel.selectTab(2); $event.preventDefault();">Specifications</a>
-              </li>
-              <li class="nav-item" ng-class="{ active: panel.isSelected(3)}">
-                <a class="nav-link" href="#" ng-click="panel.selectTab(3); $event.preventDefault();">Reviews</a>
-              </li>
-            </ul>
-            <div class="card-body" ng-show="panel.isSelected(1)">
-              <product-desc></product-desc>
-            </div>
-            <div class="card-body" ng-show="panel.isSelected(2)">
-              <product-specs></product-specs>
-            </div>
-            <div class="card-body" ng-show="panel.isSelected(3)">
-              <product-review></product-review>
-            </div>
           </section> -->
+          <product-panels></product-panels>
           <div>
             <button class="btn btn-info m-3" ng-show="product.canPurchase"> Add to Cart</button>
           </div>
