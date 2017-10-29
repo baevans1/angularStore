@@ -27,7 +27,8 @@
               </li>
             </ul>
           </section>
-          <section ng-controller="PanelController as panel">
+          <product-panels></product-panels>
+          <!-- <section ng-controller="PanelController as panel">
             <ul class="nav nav-tabs">
               <li class="nav-item" ng-class="{ active: panel.isSelected(1)}">
                 <a class="nav-link" href="#" ng-click="panel.selectTab(1); $event.preventDefault();">Description</a>
@@ -41,8 +42,6 @@
             </ul>
             <div class="card-body" ng-show="panel.isSelected(1)">
               <product-desc></product-desc>
-              <!-- <h5>Description</h5>
-              <p class="card-text">{{product.description}}</p> -->
             </div>
             <div class="card-body" ng-show="panel.isSelected(2)">
               <product-specs></product-specs>
@@ -50,7 +49,7 @@
             <div class="card-body" ng-show="panel.isSelected(3)">
               <product-review></product-review>
             </div>
-          </section>
+          </section> -->
           <div>
             <button class="btn btn-info m-3" ng-show="product.canPurchase"> Add to Cart</button>
           </div>

@@ -1,0 +1,22 @@
+<section>
+  <ul class="nav nav-tabs">
+    <li class="nav-item" ng-class="{ active: panel.isSelected(1)}">
+      <a class="nav-link" href="#" ng-click="panel.selectTab(1); $event.preventDefault();">Description</a>
+    </li>
+    <li class="nav-item" ng-class="{ active: panel.isSelected(2)}">
+      <a class="nav-link" href="#" ng-click="panel.selectTab(2); $event.preventDefault();">Specifications</a>
+    </li>
+    <li class="nav-item" ng-class="{ active: panel.isSelected(3)}">
+      <a class="nav-link" href="#" ng-click="panel.selectTab(3); $event.preventDefault();">Reviews</a>
+    </li>
+  </ul>
+  <div class="card-body" ng-show="panel.isSelected(1)">
+    <product-desc></product-desc>
+  </div>
+  <div class="card-body" ng-show="panel.isSelected(2)">
+    <product-specs></product-specs>
+  </div>
+  <div class="card-body" ng-show="panel.isSelected(3)">
+    <product-review></product-review>
+  </div>
+</section>
